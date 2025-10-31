@@ -5,7 +5,8 @@ function Health() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const url = `${import.meta.env.VITE_API_URL}/health`;
+    const base = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/auth';
+    const url = `${base}/health`;
     fetch(url, { credentials: 'include' })
       .then(async (res) => {
         if (!res.ok) throw new Error(`${res.status}`);

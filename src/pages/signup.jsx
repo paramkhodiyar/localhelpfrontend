@@ -6,6 +6,7 @@ function Signup() {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000/api/auth";
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,7 +17,7 @@ function Signup() {
     setLoading(true);
     setMessage("");
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, formData);
+      const res = await axios.post(`${API_BASE}/signup`, formData);
       setMessage("Account created successfully.");
       console.log(res.data);
     } catch (err) {

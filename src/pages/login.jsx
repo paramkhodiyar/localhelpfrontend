@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
+  const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000/api/auth";
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ function Login() {
     setLoading(true);
     setMessage("");
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/login`, formData, {
+      const res = await axios.post(`${API_BASE}/login`, formData, {
         withCredentials: true,
       });
       setMessage("Logged in successfully.");
@@ -38,7 +39,7 @@ function Login() {
     setOtpLoading(true);
     setMessage("");
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/send-otp`, { email: formData.email }, {
+      const res = await axios.post(`${API_BASE}/send-otp`, { email: formData.email }, {
         withCredentials: true,
       });
       setOtpPhase(true);
@@ -54,7 +55,7 @@ function Login() {
     setOtpLoading(true);
     setMessage("");
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/verify-otp`, { email: formData.email, otp }, {
+      const res = await axios.post(`${API_BASE}/verify-otp`, { email: formData.email, otp }, {
         withCredentials: true,
       });
       setMessage(res?.data?.message || "OTP verified. Logged in.");
