@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'https://localhelpbackend-fix.onrender.com/api/auth',
         changeOrigin: true,
         secure: false,
       },
