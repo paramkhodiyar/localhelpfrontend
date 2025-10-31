@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://localhelpfrontend.vercel.app',
+      '/api': ' https://localhelpbackend-0lwq.onrender.com',
     },
   },
 })
