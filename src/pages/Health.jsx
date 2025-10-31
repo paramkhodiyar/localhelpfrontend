@@ -6,6 +6,7 @@ function Health() {
 
   useEffect(() => {
     const base = import.meta.env.VITE_API_URL || 'https://localhelpbackend-fix.onrender.com/api/auth';
+    console.log(import.meta.env.VITE_API_URL);
     const url = `${base}/health`;
     fetch(url, { credentials: 'include' })
       .then(async (res) => {
