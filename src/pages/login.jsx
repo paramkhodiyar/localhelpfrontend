@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000/api/auth";
+  const API_BASE = import.meta.env.VITE_API_URL || "https://localhelpbackend-fix.onrender.com/api/auth";
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
